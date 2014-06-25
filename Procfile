@@ -1,1 +1,1 @@
-web:	java $JAVA_OPTS --port 8080 httpapi.jar
+web:	java $JAVA_OPTS --port 8080 build/lib/httpapi.jar

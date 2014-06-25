@@ -10,11 +10,8 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
 
-
-sourceCompatibility = 1.8
+sourceCompatibility = 1.7
 group = 'pl.mjasion'
 archivesBaseName = 'httpapi'
 version = '1.0'
@@ -62,3 +59,4 @@ sourceSets {
     }
 }
 
+task stage(dependsOn: ['build'])
