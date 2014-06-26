@@ -1,6 +1,5 @@
 language: groovy
 jdk:
-- openjdk8
 - oraclejdk8
 
 notifications:
@@ -11,7 +10,7 @@ notifications:
 deploy:
   provider: heroku
   app: httpapi
-  jdk: openjdk7
+  jdk: oraclejdk8
   strategy: git
   api_key:
     secure: mUatdwo/qoOuYWeadnwFEW1UZjc1tVmbQCecEnrWigZ2jZhCDUCtijuf5fkYCh135DMvnyu7BQadcnws113aql1ggbWP453xCINDBiELiBgJFh3sphmGNMlevB5NtZGtVg+ZR3KrtIjbZb7u/WDvNivlhtVwnS+EipWbh24DSWo=
