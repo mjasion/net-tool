@@ -10,8 +10,10 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: 'application'
+apply plugin: 'spring-boot'
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
 group = 'pl.mjasion'
 archivesBaseName = 'httpapi'
 version = '1.0'
