@@ -12,10 +12,6 @@ class IpController {
 
     @RequestMapping('/ip')
     Map ip(HttpServletRequest request) {
-        String ipAddress = request.getHeader("X-FORWARDED-FOR");
-        if (ipAddress == null) {
-            ipAddress = request.getRemoteAddr();
-        }
-        return [ip: ipAddress]
+        return [ip: request.getRemoteAddr()]
     }
 }

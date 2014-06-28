@@ -1,7 +1,6 @@
 package pl.mjasion.httpapi.controllers
 
 import groovy.transform.CompileStatic
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -27,6 +26,4 @@ class HeadersController {
     Map userAgent(HttpServletRequest request) {
         return ['user-agent': request.getHeader('user-agent')]
     }
-
-
 }
