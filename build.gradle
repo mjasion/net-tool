@@ -15,7 +15,7 @@ apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.8
 group = 'pl.mjasion'
-archivesBaseName = 'httpapi'
+archivesBaseName = 'httputils'
 version = '1.0'
 
 
@@ -32,7 +32,7 @@ dependencies {
 }
 
 jar {
-    archiveName = "httpapi.jar"
+    archiveName = "httputils.jar"
 }
 
 sourceSets {

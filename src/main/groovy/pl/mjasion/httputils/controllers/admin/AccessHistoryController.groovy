@@ -1,4 +1,4 @@
-package pl.mjasion.httpapi.controllers
+package pl.mjasion.httputils.controllers.admin
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -7,8 +7,8 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import pl.mjasion.httpapi.domain.AccessHistory
-import pl.mjasion.httpapi.domain.AccessHistoryRepository
+import pl.mjasion.httputils.domain.accesshistory.AccessHistory
+import pl.mjasion.httputils.domain.accesshistory.AccessHistoryRepository
 
 import static org.springframework.data.domain.Sort.Direction.DESC
 

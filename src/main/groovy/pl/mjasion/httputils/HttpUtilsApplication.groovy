@@ -1,4 +1,4 @@
-package pl.mjasion.httpapi
+package pl.mjasion.httputils
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -14,10 +14,10 @@ import org.springframework.scheduling.annotation.EnableScheduling
 @EnableAutoConfiguration
 @EnableScheduling
 @ComponentScan
-class HttpApiApplication {
+class HttpUtilsApplication {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(HttpApiApplication.class, args);
+        SpringApplication.run(HttpUtilsApplication.class, args);
     }
 
 }

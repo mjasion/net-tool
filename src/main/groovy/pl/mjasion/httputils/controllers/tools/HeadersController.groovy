@@ -1,15 +1,15 @@
-package pl.mjasion.httpapi.controllers
+package pl.mjasion.httputils.controllers.tools
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import pl.mjasion.httpapi.domain.AccessHistory
-import pl.mjasion.httpapi.domain.AccessHistoryRepository
+import pl.mjasion.httputils.domain.accesshistory.AccessHistory
+import pl.mjasion.httputils.domain.accesshistory.AccessHistoryRepository
 
 import javax.servlet.http.HttpServletRequest
 
-import static pl.mjasion.httpapi.domain.Site.HEADERS
+import static pl.mjasion.httputils.domain.accesshistory.Site.HEADERS
 
 @CompileStatic
 @RestController
