@@ -37,7 +37,7 @@ class RedirectServiceUnitSpec extends Specification {
     }
 
     @Unroll
-    def 'should return redirect url when accessing with #accessUrl and global domain wildcard exist'() {
+    def 'should return redirect url when accessing with #accessUrl and wildcard domain exist - #wildCard'() {
         given:
         redirectRepository.findOne(wildCard) >> new Redirect(accessUrl: wildCard, redirectUrl: redirectUrl)
 

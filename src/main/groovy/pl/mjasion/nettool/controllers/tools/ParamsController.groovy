@@ -10,7 +10,7 @@ import pl.mjasion.nettool.domain.accesshistory.AccessHistoryRepository
 
 import javax.servlet.http.HttpServletRequest
 
-import static pl.mjasion.nettool.domain.accesshistory.Site.PARAMS
+import static pl.mjasion.nettool.domain.accesshistory.AccessType.PARAMS
 
 @CompileStatic
 @RestController
@@ -35,7 +35,7 @@ class ParamsController {
     }
 
     private List<Map> convertParams(HttpServletRequest request) {
-        ipUserRepository.save(new AccessHistory(ip: request.getRemoteAddr(), accessDate: new Date(), site: PARAMS))
+        ipUserRepository.save(new AccessHistory(ip: request.getRemoteAddr(), accessDate: new Date(), accessType: PARAMS))
         request.getParameterMap().collect { String key, String[] value ->
             Map params = [
                     key  : key,

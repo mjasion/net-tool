@@ -9,7 +9,7 @@ import pl.mjasion.nettool.domain.accesshistory.AccessHistoryRepository
 
 import javax.servlet.http.HttpServletRequest
 
-import static pl.mjasion.nettool.domain.accesshistory.Site.HEADERS
+import static pl.mjasion.nettool.domain.accesshistory.AccessType.HEADERS
 
 @CompileStatic
 @RestController
@@ -50,7 +50,7 @@ class HeadersController {
     }
 
     private String getUserAgent(HttpServletRequest request) {
-        accessHistoryRepository.save(new AccessHistory(ip: request.getRemoteAddr(), accessDate: new Date(), site: HEADERS))
+        accessHistoryRepository.save(new AccessHistory(ip: request.getRemoteAddr(), accessDate: new Date(), accessType: HEADERS))
         request.getHeader('user-agent')
     }
 }

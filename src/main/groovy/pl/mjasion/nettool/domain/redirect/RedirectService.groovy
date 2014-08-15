@@ -19,6 +19,7 @@ class RedirectService {
 
 
     String getRedirect(String hostname, String ip) {
+        log.info("Finding redirect for: $hostname")
         Redirect redirect = findRedirect(hostname) ?: redirectRepository.findOne(DEFAULT_REDIRECT_KEY)
         log.info("Redirect for $hostname is: ${redirect.redirectUrl}")
         saveRedirectHistory(hostname, redirect.redirectUrl, ip)

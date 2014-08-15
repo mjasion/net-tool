@@ -6,17 +6,21 @@ var netTool = angular.module('netTool', ['ngRoute', 'app.controllers']);
 netTool.config(function ($routeProvider, $locationProvider, RestangularProvider) {
     $locationProvider.html5Mode(false);
     $routeProvider.
-        when('/redirects', {
+        when('/redirect', {
             templateUrl: 'partials/redirects.html',
             controller: 'RedirectsController'
         }).
-        when('/redirects/add', {
+        when('/redirect/add', {
             templateUrl: 'partials/addRedirect.html',
             controller: 'AddRedirectController'
         }).
-        when('/history', {
-            templateUrl: 'partials/history.html',
-            controller: 'HistoryController'
+        when('/redirect/history', {
+            templateUrl: 'partials/redirectHistory.html',
+            controller: 'RedirectHistoryController'
+        }).
+        when('/access/history', {
+            templateUrl: 'partials/accessHistory.html',
+            controller: 'AccessHistoryController'
         }).
         when('/logout', {
             controller: 'LogoutController'

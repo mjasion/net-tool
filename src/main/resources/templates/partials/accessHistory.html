@@ -1,0 +1,14 @@
+<h2>Access history</h2>
+<table class="table table-striped">
+    <tr>
+        <th>IP</th>
+        <th>Date</th>
+        <th>Access type</th>
+    </tr>
+    <tr ng-repeat="history in accessHistory.content">
+        <td>{{history.ip}}</td>
+        <td>{{history.accessDate}}</td>
+        <td>{{history.accessType}}</td>
+    </tr>
+</table>
+<p>Elemetów: {{accessHistory.totalElements}}</p>

@@ -11,11 +11,6 @@ spring:
 # EMBEDDED SERVER CONFIGURATION (ServerProperties)
 server:
   port: 8080
-  session-timeout: 30
-    basedir: /tmp
-    background-processor-delay: 30
-    max-threads:  1
-    uri-encoding:  UTF-8
 
 # SPRING MVC (HttpMapperProperties)
 http:

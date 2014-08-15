@@ -9,7 +9,7 @@ import pl.mjasion.nettool.domain.accesshistory.AccessHistoryRepository
 
 import javax.servlet.http.HttpServletRequest
 
-import static pl.mjasion.nettool.domain.accesshistory.Site.IP
+import static pl.mjasion.nettool.domain.accesshistory.AccessType.IP
 
 @CompileStatic
 @RestController
@@ -29,7 +29,7 @@ class IpController {
 
     private String getIp(HttpServletRequest request) {
         String ip = request.getRemoteAddr()
-        accessHistoryRepository.save(new AccessHistory(ip: ip, accessDate: new Date(), site: IP))
+        accessHistoryRepository.save(new AccessHistory(ip: ip, accessDate: new Date(), accessType: IP))
         return ip
     }
 }
