@@ -1,4 +1,4 @@
-package pl.mjasion.httputils.domain.redirect
+package pl.mjasion.nettool.domain.redirect
 
 import org.springframework.data.repository.CrudRepository
 

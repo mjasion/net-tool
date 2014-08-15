@@ -1,4 +1,4 @@
-package pl.mjasion.httputils.domain.accesshistory
+package pl.mjasion.nettool.domain.accesshistory
 
 import org.springframework.data.repository.PagingAndSortingRepository
 

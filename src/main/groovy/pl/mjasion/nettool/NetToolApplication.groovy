@@ -1,4 +1,4 @@
-package pl.mjasion.httputils
+package pl.mjasion.nettool
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -14,10 +14,10 @@ import org.springframework.scheduling.annotation.EnableScheduling
 @EnableAutoConfiguration
 @EnableScheduling
 @ComponentScan
-class HttpUtilsApplication {
+class NetToolApplication {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(HttpUtilsApplication.class, args);
+        SpringApplication.run(NetToolApplication.class, args);
     }
 
 }
