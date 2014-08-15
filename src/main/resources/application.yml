@@ -5,21 +5,21 @@ spring:
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
+  mvc:
+    locale: pl_PL
 
 # EMBEDDED SERVER CONFIGURATION (ServerProperties)
 server:
   port: 8080
   session-timeout: 30
-  tomcat.basedir: /tmp
-  tomcat.background-processor-delay: 30
-  tomcat.max-threads:  1
-  tomcat.uri-encoding:  UTF-8
+    basedir: /tmp
+    background-processor-delay: 30
+    max-threads:  1
+    uri-encoding:  UTF-8
 
 # SPRING MVC (HttpMapperProperties)
-http.mappers.json-pretty-print: true
-http.mappers.json-sort-keys: true
-spring.mvc.locale: pl_PL
-spring.mvc.date-format: dd/MM/yyyy HH:mm:ss
-
-
+http:
+  mappers:
+    json-pretty-print: true
+    json-sort-keys: true
 
