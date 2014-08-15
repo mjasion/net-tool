@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['restangular'])
 
 var netTool = angular.module('netTool', ['ngRoute', 'app.controllers']);
-netTool.config(function ($routeProvider, $locationProvider) {
+netTool.config(function ($routeProvider, $locationProvider, RestangularProvider) {
     $locationProvider.html5Mode(false);
     $routeProvider.
         when('/redirects', {
@@ -24,5 +24,7 @@ netTool.config(function ($routeProvider, $locationProvider) {
         otherwise({
             redirectTo: '/redirects'
         });
+
+    RestangularProvider.setBaseUrl('/admin/')
 })
 

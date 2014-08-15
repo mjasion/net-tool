@@ -1,1 +1,16 @@
-<h1>History</h1>
+<h2>History</h2>
+<table class="table table-striped">
+    <tr>
+        <th>IP</th>
+        <th>Date</th>
+        <th>Access URL</th>
+        <th>Redirect URL</th>
+    </tr>
+    <tr ng-repeat="history in redirectHistory.content">
+        <td>{{history.ip}}</td>
+        <td>{{history.accessDate}}</td>
+        <td>{{history.site}}</td>
+        <td>{{history.site}}</td>
+    </tr>
+</table>
+<p>Elemetów: {{redirectHistory.totalElements}}</p>
