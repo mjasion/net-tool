@@ -2,7 +2,7 @@
 
 angular.module('app.controllers', ['restangular'])
 
-var netTool = angular.module('netTool', ['ngRoute', 'app.controllers']);
+var netTool = angular.module('netTool', ['ngRoute', 'app.controllers', 'app.directives']);
 netTool.config(function ($routeProvider, $locationProvider, RestangularProvider) {
     $locationProvider.html5Mode(false);
     $routeProvider.

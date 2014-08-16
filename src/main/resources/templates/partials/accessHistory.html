@@ -1,4 +1,5 @@
 <h2>Access history</h2>
+<table-paginator page="accessHistory" next-page="nextPage()" prev-page="prevPage()"></table-paginator>
 <table class="table table-striped">
     <tr>
         <th>IP</th>
@@ -11,4 +12,4 @@
         <td>{{history.accessType}}</td>
     </tr>
 </table>
-<p>Elemetów: {{accessHistory.totalElements}}</p>
+<table-info page="accessHistory"></table-info>

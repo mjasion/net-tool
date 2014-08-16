@@ -1,4 +1,5 @@
 <h2>Redirect history</h2>
+<table-paginator page="redirectHistory" next-page="nextPage()" prev-page="prevPage()"></table-paginator>
 <table class="table table-striped">
     <tr>
         <th>IP</th>
@@ -13,4 +14,5 @@
         <td>{{history.redirectUrl}}</td>
     </tr>
 </table>
-<p>Elemetów: {{redirectHistory.totalElements}}</p>
+<table-info page="redirectHistory"></table-info>
+
