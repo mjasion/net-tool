@@ -13,7 +13,7 @@ class AccessHistory {
 
     String ip
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "CET")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS", timezone = "CET")
     Date accessDate
 
     AccessType accessType

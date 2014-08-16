@@ -1,6 +1,5 @@
 package pl.mjasion.nettool.controllers.admin
 
-import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
@@ -8,23 +7,25 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.data.web.PageableDefault
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.*
 import pl.mjasion.nettool.domain.accesshistory.AccessHistory
 import pl.mjasion.nettool.domain.accesshistory.AccessHistoryRepository
+import pl.mjasion.nettool.domain.redirect.Redirect
 import pl.mjasion.nettool.domain.redirect.RedirectHistory
 import pl.mjasion.nettool.domain.redirect.RedirectHistoryRepository
+import pl.mjasion.nettool.domain.redirect.RedirectRepository
+import pl.mjasion.nettool.service.TimeService
 
 import javax.servlet.http.HttpServletRequest
 
 @Slf4j
 @Controller
-@CompileStatic
 @RequestMapping('/admin')
 class AdminController {
     @Autowired AccessHistoryRepository accessHistoryRepository
     @Autowired RedirectHistoryRepository redirectHistoryRepository
+    @Autowired RedirectRepository redirectRepository
+    @Autowired TimeService timeService
 
     @RequestMapping('')
     String admin(HttpServletRequest request) {
@@ -52,5 +53,25 @@ class AdminController {
             @PageableDefault(page = 0, size = 50, sort = ["accessDate"], direction = Sort.Direction.DESC) Pageable pageable
     ) {
         return accessHistoryRepository.findAll(pageable)
+    }
+
+    @ResponseBody
+    @RequestMapping('/redirects')
+    List redirects() {
+        return redirectRepository.findAll()
+    }
+
+    @ResponseBody
+    @RequestMapping(value = '/redirect', method = RequestMethod.PUT)
+    void putRedirect(@RequestParam String accessUrl, @RequestParam String redirectUrl) {
+        log.info("Creating redirect: $accessUrl -> $redirectUrl")
+        redirectRepository.save(new Redirect(redirectUrl: redirectUrl, accessUrl: accessUrl, created: timeService.now()))
+    }
+
+    @ResponseBody
+    @RequestMapping(value = '/redirect', method = RequestMethod.DELETE)
+    void deleteRedirect(@RequestParam String accessUrl) {
+        log.info("Removing redirect: $accessUrl")
+        redirectRepository.delete(accessUrl)
     }
 }

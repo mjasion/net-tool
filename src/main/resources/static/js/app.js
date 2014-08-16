@@ -26,7 +26,7 @@ netTool.config(function ($routeProvider, $locationProvider, RestangularProvider)
             controller: 'LogoutController'
         }).
         otherwise({
-            redirectTo: '/redirects'
+            redirectTo: '/redirect'
         });
 
     RestangularProvider.setBaseUrl('/admin/')

@@ -1,1 +1,15 @@
 <h2>Redirects</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Access URL</th>
+        <th>Redirect URL</th>
+        <th>Created</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="redirect in redirects">
+        <td>{{redirect.accessUrl}}</td>
+        <td>{{redirect.redirectUrl}}</td>
+        <td>{{redirect.created}}</td>
+        <td><a href="" ng-click="remove(redirect)"><span class="glyphicon glyphicon-remove"></span></a></td>
+    </tr>
+</table>
