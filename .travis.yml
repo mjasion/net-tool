@@ -9,7 +9,7 @@ notifications:
 
 deploy:
   provider: heroku
-  app: httpapi
+  app: nettool
   jdk: oraclejdk8
   strategy: git
   api_key:
