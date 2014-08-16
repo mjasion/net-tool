@@ -1,0 +1,20 @@
+# IDENTITY (ContextIdApplicationContextInitializer)
+spring:
+  application:
+    name: nettools
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  mvc:
+    locale: pl_PL
+
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+server:
+  port: 8080
+
+# SPRING MVC (HttpMapperProperties)
+http:
+  mappers:
+    json-pretty-print: true
+    json-sort-keys: true
+

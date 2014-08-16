@@ -1,0 +1,18 @@
+<h2>Redirect history</h2>
+<table-paginator page="redirectHistory" next-page="nextPage()" prev-page="prevPage()"></table-paginator>
+<table class="table table-striped">
+    <tr>
+        <th>IP</th>
+        <th>Date</th>
+        <th>Access URL</th>
+        <th>Redirect URL</th>
+    </tr>
+    <tr ng-repeat="history in redirectHistory.content">
+        <td>{{history.ip}}</td>
+        <td>{{history.accessDate}}</td>
+        <td>{{history.accessUrl}}</td>
+        <td>{{history.redirectUrl}}</td>
+    </tr>
+</table>
+<table-info page="redirectHistory"></table-info>
+

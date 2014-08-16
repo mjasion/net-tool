@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE")
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.1.5.RELEASE')
     }
 }
 
@@ -15,7 +15,7 @@ apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.8
 group = 'pl.mjasion'
-archivesBaseName = 'httpapi'
+archivesBaseName = 'net-tool'
 version = '1.0'
 
 
@@ -25,22 +25,37 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.5'
+    compile 'org.codehaus.groovy:groovy-all:2.3.6'
     compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+    compile 'net.sourceforge.nekohtml:nekohtml:1.9.21'
+
+    compile 'org.webjars:angularjs:1.3.0-beta.18'
+    compile 'org.webjars:angular-ui-router:0.2.10-1'
+    compile 'org.webjars:angular-ui-bootstrap:0.11.0-2'
+    compile 'org.webjars:restangular:1.4.0-2'
+    compile 'org.webjars:underscorejs:1.6.0-3'
+    compile 'org.webjars:jquery:2.1.1'
+    compile 'org.webjars:bootstrap:3.2.0'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework:spring-test'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile("org.spockframework:spock-core:0.7-groovy-2.0") {
+        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+    }
+    testRuntime("org.spockframework:spock-spring:0.7-groovy-2.0") {
+        exclude group: 'org.spockframework', module: 'spock-core'
+    }
+    testRuntime 'cglib:cglib-nodep:3.1'
 }
 
 jar {
-    archiveName = "httpapi.jar"
-}
-
-sourceSets {
-    test {
-        groovy {
-            srcDirs = ['src/test/groovy']
-        }
-    }
+    archiveName = 'nettool.jar'
 }
 
 task stage(dependsOn: ['build'])
