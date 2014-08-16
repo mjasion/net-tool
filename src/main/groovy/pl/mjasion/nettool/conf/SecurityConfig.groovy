@@ -25,7 +25,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers('/admin/**', '/css/**', '/js/**', '/**.html').hasRole('ADMIN')
                 .and()
-                .requiresChannel().antMatchers('/admin/**', '/css/**', '/js/**', '/**.html').requiresSecure()
+                .requiresChannel().antMatchers('/admin/**').requiresSecure()
                 .and()
                 .httpBasic()
                 .and()
