@@ -14,7 +14,7 @@ class RedirectService {
     @Autowired RedirectHistoryRepository redirectHistoryRepository
     @Autowired TimeService timeService
 
-    public static final String DEFAULT_REDIRECT_KEY = 'default'
+    public static final String DEFAULT_REDIRECT_KEY = 'DEFAULT'
     private static final String WILDCARD_PREFIX = '*.'
 
 
@@ -65,7 +65,6 @@ class RedirectService {
         redirectHistoryRepository.save(new RedirectHistory(
                 accessUrl: hostname,
                 redirectUrl: redirectUrl,
-                ip: ip,
                 accessDate: timeService.now()
         ))
     }

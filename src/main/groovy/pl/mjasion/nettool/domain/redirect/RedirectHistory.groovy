@@ -9,8 +9,6 @@ class RedirectHistory {
     @JsonIgnore
     String id
 
-    String ip
-
     String accessUrl
 
     String redirectUrl

@@ -3,13 +3,17 @@ package pl.mjasion.nettool.conf
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 
+import static pl.mjasion.nettool.Profiles.PRODUCTION
+
 @Configuration
 @EnableWebSecurity
+@Profile(PRODUCTION)
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value('${user.admin.password}') String password
