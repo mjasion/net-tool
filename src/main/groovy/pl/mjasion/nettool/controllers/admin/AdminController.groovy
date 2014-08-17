@@ -18,6 +18,9 @@ import pl.mjasion.nettool.service.TimeService
 
 import javax.servlet.http.HttpServletRequest
 
+import static org.springframework.data.domain.Sort.Direction.DESC
+import static pl.mjasion.nettool.domain.redirect.RedirectService.DEFAULT_REDIRECT_KEY
+
 @Slf4j
 @Controller
 @RequestMapping('/admin')
@@ -42,7 +45,7 @@ class AdminController {
     @ResponseBody
     @RequestMapping('/redirect-history')
     Page<RedirectHistory> redirectHistory(
-            @PageableDefault(page = 0, size = 50, sort = ["accessDate"], direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(page = 0, size = 50, sort = ["accessDate"], direction = DESC) Pageable pageable
     ) {
         return redirectHistoryRepository.findAll(pageable)
     }
@@ -50,7 +53,7 @@ class AdminController {
     @ResponseBody
     @RequestMapping('/access-history')
     Page<AccessHistory> accessHistoryList(
-            @PageableDefault(page = 0, size = 50, sort = ["accessDate"], direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(page = 0, size = 50, sort = ["accessDate"], direction = DESC) Pageable pageable
     ) {
         return accessHistoryRepository.findAll(pageable)
     }
@@ -58,7 +61,7 @@ class AdminController {
     @ResponseBody
     @RequestMapping('/redirects')
     List redirects() {
-        return redirectRepository.findAll()
+        return redirectRepository.findAll(new Sort(new Sort.Order(DESC, 'created')))
     }
 
     @ResponseBody
@@ -71,6 +74,7 @@ class AdminController {
     @ResponseBody
     @RequestMapping(value = '/redirect', method = RequestMethod.DELETE)
     void deleteRedirect(@RequestParam String accessUrl) {
+        assert !accessUrl.equals(DEFAULT_REDIRECT_KEY)
         log.info("Removing redirect: $accessUrl")
         redirectRepository.delete(accessUrl)
     }

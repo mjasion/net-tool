@@ -9,8 +9,6 @@ angular.module('app.controllers')
             })
         }
 
-        $scope.refreshPage()
-
         $scope.prevPage = function () {
             if ($scope.accessHistory.firstPage)
                 return;
@@ -24,4 +22,10 @@ angular.module('app.controllers')
             $scope.pageNumber = $scope.pageNumber + 1
             $scope.refreshPage()
         }
+
+        $scope.$watch('size', function (newSize, old) {
+            $scope.size = newSize
+            $scope.pageNumber = 0
+            $scope.refreshPage()
+        })
     });

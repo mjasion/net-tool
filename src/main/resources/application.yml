@@ -9,3 +9,19 @@ spring:
     locale: pl_PL
 
 nettool.admin.host: nettool.herokuapp.com
+
+---
+spring:
+  profiles: develop
+  data.mongodb.uri: mongodb://nettool-github:nettool-github@ds055689.mongolab.com:55689/nettool-github
+user.admin.password: admin
+nettool.admin.host: localhost:8080
+
+
+security:
+  user:
+    name: admin
+    password: admin
+    role: ADMIN
+  enable-csrf: false
+  basic.enabled: false

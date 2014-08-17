@@ -14,4 +14,8 @@ angular.module('app.controllers')
                 })
             }
         }
+
+        $scope.isDefaultRedirect = function (redirect) {
+            return redirect.accessUrl === 'DEFAULT'
+        }
     });

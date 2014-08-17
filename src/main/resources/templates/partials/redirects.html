@@ -10,6 +10,6 @@
         <td>{{redirect.accessUrl}}</td>
         <td>{{redirect.redirectUrl}}</td>
         <td>{{redirect.created}}</td>
-        <td><a href="" ng-click="remove(redirect)"><span class="glyphicon glyphicon-remove"></span></a></td>
+        <td><a href="" ng-click="remove(redirect)" ng-hide="isDefaultRedirect(redirect)"><span class="glyphicon glyphicon-remove"></span></a></td>
     </tr>
 </table>

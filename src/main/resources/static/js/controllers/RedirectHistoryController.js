@@ -6,10 +6,9 @@ angular.module('app.controllers')
         $scope.refreshPage = function () {
             Restangular.one('redirect-history').customGET('', {page: $scope.pageNumber, size: $scope.size}).then(function (response) {
                 $scope.redirectHistory = response
+                $scope.pageNumber = response.number
             })
         }
-
-        $scope.refreshPage()
 
         $scope.prevPage = function () {
             if ($scope.redirectHistory.firstPage)
@@ -25,4 +24,9 @@ angular.module('app.controllers')
             $scope.refreshPage()
         }
 
+        $scope.$watch('size', function (newSize, old) {
+            $scope.size = newSize
+            $scope.pageNumber = 0
+            $scope.refreshPage()
+        })
     });

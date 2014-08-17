@@ -47,3 +47,21 @@ directives.directive('tableInfo', function () {
     }
 })
 
+directives.directive('sizeSelector', function () {
+    return {
+        restrict: 'AE',
+        scope: {
+            pageSize: '='
+        },
+        template: '<div class="col-sm-2">' +
+            '<select class="form-control" ng-model="pageSize">' +
+            '<option>25</option>' +
+            '<option>50</option>' +
+            '<option>100</option>' +
+            '<option>250</option>' +
+            '<option>500</option>' +
+            '<option>1000</option>' +
+            '</select>' +
+            '</div>'
+    }
+})
