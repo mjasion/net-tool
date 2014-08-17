@@ -1,6 +1,7 @@
 package pl.mjasion.nettool.domain.redirect
 
 import pl.mjasion.nettool.service.TimeService
+import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -9,6 +10,7 @@ class RedirectServiceUnitSpec extends Specification {
     String hostname = 'google.com'
     String redirectUrl = 'www.google.com'
     String ip = '1.2.3.4'
+    @Shared
     String defaultUrl = 'www.default.pl'
     Redirect defaultRedirect = new Redirect(accessUrl: RedirectService.DEFAULT_REDIRECT_KEY, redirectUrl: defaultUrl)
 
@@ -33,7 +35,7 @@ class RedirectServiceUnitSpec extends Specification {
         String redirect = redirectService.getRedirect(hostname, ip)
 
         then:
-        redirect == "redirect:$redirectUrl"
+        redirect == redirectUrl
     }
 
     @Unroll
@@ -45,7 +47,7 @@ class RedirectServiceUnitSpec extends Specification {
         String redirect = redirectService.getRedirect(accessUrl, ip)
 
         then:
-        redirect == "redirect:$redirectUrl"
+        redirect == redirectUrl
 
         where:
         accessUrl                | wildCard
@@ -71,7 +73,7 @@ class RedirectServiceUnitSpec extends Specification {
         String redirect = redirectService.getRedirect('*.com', ip)
 
         then:
-        redirect == "redirect:$defaultUrl"
+        redirect == defaultUrl
     }
 
     def 'should return default redirect when cannot match access url'() {
@@ -79,6 +81,30 @@ class RedirectServiceUnitSpec extends Specification {
         String redirect = redirectService.getRedirect('donotfindme.com', ip)
 
         then:
-        redirect == "redirect:$defaultUrl"
+        redirect == defaultUrl
     }
+
+    def 'should return default redirect when hostname is ip'() {
+        when:
+        String redirect = redirectService.getRedirect('1.2.3.4', ip)
+
+        then:
+        redirect == defaultUrl
+    }
+
+    def 'should return default redirect when hostname is contains port'() {
+        when:
+        String redirect = redirectService.getRedirect(accessUrl, ip)
+
+        then:
+        redirect == expectedRedirectUrl
+
+        where:
+        accessUrl         | expectedRedirectUrl
+        '1.2.3.4:8080'    | defaultUrl
+        'mjasion.pl:8080' | defaultUrl
+
+    }
+
+
 }

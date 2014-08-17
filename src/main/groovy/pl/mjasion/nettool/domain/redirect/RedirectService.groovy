@@ -19,15 +19,24 @@ class RedirectService {
 
 
     String getRedirect(String hostname, String ip) {
-        log.info("Finding redirect for: $hostname")
-        Redirect redirect = findRedirect(hostname) ?: redirectRepository.findOne(DEFAULT_REDIRECT_KEY)
+        String domain = getDomain(hostname)
+        log.info("Finding redirect for: $domain")
+        Redirect redirect = findRedirect(domain) ?: redirectRepository.findOne(DEFAULT_REDIRECT_KEY)
         log.info("Redirect for $hostname is: ${redirect.redirectUrl}")
         saveRedirectHistory(hostname, redirect.redirectUrl, ip)
-        return "redirect:$redirect.redirectUrl"
+        return redirect.redirectUrl
     }
 
-    private Redirect findRedirect(String hostname) {
-        String domain = hostname.toLowerCase()
+    private String getDomain(String hostname) {
+        def domain = hostname.split(':').first().toLowerCase()
+        return isNotIpAddress(domain) ? domain : 'localhost'
+    }
+
+    private boolean isNotIpAddress(String domain) {
+        return !domain.matches('^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$')
+    }
+
+    private Redirect findRedirect(String domain) {
         Redirect redirect = redirectRepository.findOne(domain)
         while (!redirect && canCreateUpperLevelWildcard(domain)) {
             domain = getWildCardDomain(domain)
@@ -37,7 +46,7 @@ class RedirectService {
     }
 
     boolean canCreateUpperLevelWildcard(String domain) {
-        return !domain.matches('^\\*\\.[a-z]+$')
+        return !domain.matches('^\\*\\.[a-z]+$') && !domain.matches('\\*')
     }
 
     private String getWildCardDomain(String domain) {
