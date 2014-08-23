@@ -61,6 +61,7 @@ directives.directive('sizeSelector', function () {
             '<option>250</option>' +
             '<option>500</option>' +
             '<option>1000</option>' +
+            '<option>2000</option>' +
             '</select>' +
             '</div>'
     }
