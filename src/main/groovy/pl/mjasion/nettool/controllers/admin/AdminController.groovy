@@ -14,6 +14,8 @@ import pl.mjasion.nettool.domain.redirect.Redirect
 import pl.mjasion.nettool.domain.redirect.RedirectHistory
 import pl.mjasion.nettool.domain.redirect.RedirectHistoryRepository
 import pl.mjasion.nettool.domain.redirect.RedirectRepository
+import pl.mjasion.nettool.domain.watchers.WatchedPage
+import pl.mjasion.nettool.domain.watchers.WatchedPageRepository
 import pl.mjasion.nettool.service.TimeService
 
 import javax.servlet.http.HttpServletRequest
@@ -29,6 +31,7 @@ class AdminController {
     @Autowired RedirectHistoryRepository redirectHistoryRepository
     @Autowired RedirectRepository redirectRepository
     @Autowired TimeService timeService
+    @Autowired WatchedPageRepository watchedUrlRepository
 
     @RequestMapping('')
     String admin(HttpServletRequest request) {
@@ -77,5 +80,25 @@ class AdminController {
         assert !accessUrl.equals(DEFAULT_REDIRECT_KEY)
         log.info("Removing redirect: $accessUrl")
         redirectRepository.delete(accessUrl)
+    }
+
+    @ResponseBody
+    @RequestMapping('/watchedPages')
+    List watchedPages() {
+        return watchedUrlRepository.findAll(new Sort(new Sort.Order(DESC, 'created')))
+    }
+
+    @ResponseBody
+    @RequestMapping(value = '/watchedPage', method = RequestMethod.PUT)
+    void putWatchedPage(@RequestParam String url) {
+        log.info("Creating watched page: $url")
+        watchedUrlRepository.save(new WatchedPage(url: url, created: timeService.now()))
+    }
+
+    @ResponseBody
+    @RequestMapping(value = '/watchedPage', method = RequestMethod.DELETE)
+    void deleteWatchedPage(@RequestParam String url) {
+        log.info("Removing watched page: $url")
+        watchedUrlRepository.delete(url)
     }
 }
