@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<h2>Pages to watch</h2>
+<table class="table table-striped">
+    <tr>
+        <th>URL</th>
+        <th>Created</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="page in watchedPages">
+        <td>{{page.url}}</td>
+        <td>{{page.created}}</td>
+        <td><a href="" ng-click="remove(page)"><span class="glyphicon glyphicon-remove"></span></a></td>
+    </tr>
+</table>

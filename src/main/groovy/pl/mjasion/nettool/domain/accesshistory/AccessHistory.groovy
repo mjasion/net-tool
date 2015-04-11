@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 class AccessHistory {
     @Id
     @JsonIgnore
-    String id;
+    String id
 
     String ip
 

@@ -8,7 +8,9 @@ spring:
   mvc:
     locale: pl_PL
 
-nettool.admin.host: nettool.herokuapp.com
+nettool:
+  admin.host: nettool.herokuapp.com
+  cron.heroku: 0 0/10 * 1/1 * ?
 
 ---
 spring:
