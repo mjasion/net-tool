@@ -21,6 +21,3 @@ build/
 out/
 
 *.log
-gradlew
-gradlew.bat
-gradle-wrapper.properties
