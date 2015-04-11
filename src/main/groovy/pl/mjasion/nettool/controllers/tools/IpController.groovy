@@ -28,7 +28,7 @@ class IpController {
     }
 
     private String getIp(HttpServletRequest request) {
-        String ip = request.getRemoteAddr()
+        String ip = request.getHeader('x-forwarded-for')
         accessHistoryRepository.save(new AccessHistory(ip: ip, accessDate: new Date(), accessType: IP))
         return ip
     }
