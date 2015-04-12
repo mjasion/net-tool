@@ -51,4 +51,4 @@ jar {
     archiveName = 'nettool.jar'
 }
 
-task stage(dependsOn: ['build'])
+task stage(dependsOn: ['bootRepackage'])
