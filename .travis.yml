@@ -13,4 +13,4 @@ deploy:
   jdk: oraclejdk8
   strategy: git
   api_key:
-    secure: mUatdwo/qoOuYWeadnwFEW1UZjc1tVmbQCecEnrWigZ2jZhCDUCtijuf5fkYCh135DMvnyu7BQadcnws113aql1ggbWP453xCINDBiELiBgJFh3sphmGNMlevB5NtZGtVg+ZR3KrtIjbZb7u/WDvNivlhtVwnS+EipWbh24DSWo=
+    secure: JiU0Cikjz3lYeST+8mqrpST/Mhkr9+NyfSmCqbj2ROTl/4oazTazeWv5eqNJaB3ECZSgQ0h/zsjiuw66kVHo15B3Ye4mJKTTkBpJ3DGGaIO3rDSehDKoGRlk3FAXi+rnJGcq2onhUVyzEIk/UzCmcjnRmOUX3xgLnXZjDXG8C44=
