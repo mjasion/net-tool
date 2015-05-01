@@ -26,10 +26,6 @@ netTool.config(function ($routeProvider, $locationProvider, RestangularProvider)
             templateUrl: 'partials/redirectHistory.html',
             controller: 'RedirectHistoryController'
         }).
-        when('/access/history', {
-            templateUrl: 'partials/accessHistory.html',
-            controller: 'AccessHistoryController'
-        }).
         when('/logout', {
             controller: 'LogoutController'
         }).

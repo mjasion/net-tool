@@ -1,21 +1,14 @@
 package pl.mjasion.nettool.controllers.tools
 
 import groovy.transform.CompileStatic
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import pl.mjasion.nettool.domain.accesshistory.AccessHistory
-import pl.mjasion.nettool.domain.accesshistory.AccessHistoryRepository
 
 import javax.servlet.http.HttpServletRequest
-
-import static pl.mjasion.nettool.domain.accesshistory.AccessType.HEADERS
 
 @CompileStatic
 @RestController
 class HeadersController {
-
-    @Autowired AccessHistoryRepository accessHistoryRepository
 
     @RequestMapping('/rest/headers')
     Map restHeaders(HttpServletRequest request) {
@@ -50,7 +43,6 @@ class HeadersController {
     }
 
     private String getUserAgent(HttpServletRequest request) {
-        accessHistoryRepository.save(new AccessHistory(ip: request.getRemoteAddr(), accessDate: new Date(), accessType: HEADERS))
-        request.getHeader('user-agent')
+       return request.getHeader('user-agent')
     }
 }

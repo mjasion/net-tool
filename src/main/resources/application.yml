@@ -8,6 +8,13 @@ spring:
   mvc:
     locale: pl_PL
 
+endpoints:
+  shutdown.enabled: false
+  autoconfig.enabled: false
+  dump.enabled: false
+  configprops.enabled: false
+  env.enabled: false
+
 nettool:
   admin.host: nettool.herokuapp.com
   cron.heroku: 0 0/10 * 1/1 * ?
@@ -18,7 +25,6 @@ spring:
   data.mongodb.uri: mongodb://nettool-github:nettool-github@ds055689.mongolab.com:55689/nettool-github
 user.admin.password: admin
 nettool.admin.host: localhost:8080
-
 
 security:
   user:

@@ -8,8 +8,6 @@ import org.springframework.data.domain.Sort
 import org.springframework.data.web.PageableDefault
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
-import pl.mjasion.nettool.domain.accesshistory.AccessHistory
-import pl.mjasion.nettool.domain.accesshistory.AccessHistoryRepository
 import pl.mjasion.nettool.domain.redirect.Redirect
 import pl.mjasion.nettool.domain.redirect.RedirectHistory
 import pl.mjasion.nettool.domain.redirect.RedirectHistoryRepository
@@ -27,7 +25,6 @@ import static pl.mjasion.nettool.domain.redirect.RedirectService.DEFAULT_REDIREC
 @Controller
 @RequestMapping('/admin')
 class AdminController {
-    @Autowired AccessHistoryRepository accessHistoryRepository
     @Autowired RedirectHistoryRepository redirectHistoryRepository
     @Autowired RedirectRepository redirectRepository
     @Autowired TimeService timeService
@@ -51,14 +48,6 @@ class AdminController {
             @PageableDefault(page = 0, size = 50, sort = ["accessDate"], direction = DESC) Pageable pageable
     ) {
         return redirectHistoryRepository.findAll(pageable)
-    }
-
-    @ResponseBody
-    @RequestMapping('/access-history')
-    Page<AccessHistory> accessHistoryList(
-            @PageableDefault(page = 0, size = 50, sort = ["accessDate"], direction = DESC) Pageable pageable
-    ) {
-        return accessHistoryRepository.findAll(pageable)
     }
 
     @ResponseBody

@@ -24,8 +24,6 @@
     <script src="../static/js/controllers/WatchedPagesController.js" th:src="@{/js/controllers/WatchedPagesController.js}"></script>
     <script src="../static/js/controllers/LogoutController.js" th:src="@{/js/controllers/LogoutController.js}"></script>
     <script src="../static/js/controllers/MainController.js" th:src="@{/js/controllers/MainController.js}"></script>
-    <script src="../static/js/controllers/MainController.js" th:src="@{/js/controllers/AccessHistoryController.js}"></script>
-    <script src="../static/js/controllers/MainController.js" th:src="@{/js/controllers/AccessHistoryController.js}"></script>
 </head>
 <body ng-controller="MainController">
 <div class="container">
@@ -40,33 +38,25 @@
                     <li><a href="#/redirect/add">Add redirect</a></li>
                     <li><a href="#/pagestowatch">Pages to watch</a></li>
                     <li><a href="#/pagestowatch/add">Add page to watch</a></li>
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Access History <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#/access/history">Access History</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#/access/history/groupByIp">How many by IP</a></li>
-                            <li><a href="#/access/history/groupByDate">How many by Date</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Redirect History <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#/redirect/history">Redirect History</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#/redirect/history/groupByIp">How many by IP</a></li>
-                            <li><a href="#/redirect/history/groupAccessUrl">How many by Access URL</a></li>
-                            <li><a href="#/redirect/history/groupRedirectUrl">How many by Redirect URL</a></li>
-                            <li><a href="#/redirect/history/groupByDate">How many by Date</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#/redirect/history">Redirect History</a></li>
+                    <!--<li class="dropdown">-->
+                        <!--<a href="" class="dropdown-toggle" data-toggle="dropdown">Redirect History <span class="caret"></span></a>-->
+                        <!--<ul class="dropdown-menu" role="menu">-->
+                            <!--<li><a href="#/redirect/history">Redirect History</a></li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li><a href="#/redirect/history/groupByIp">How many by IP</a></li>-->
+                            <!--<li><a href="#/redirect/history/groupAccessUrl">How many by Access URL</a></li>-->
+                            <!--<li><a href="#/redirect/history/groupRedirectUrl">How many by Redirect URL</a></li>-->
+                            <!--<li><a href="#/redirect/history/groupByDate">How many by Date</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.login}} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="">Log out</a></li>
-                        </ul>
+                        <!--<ul class="dropdown-menu" role="menu">-->
+                            <!--<li><a href="">Log out</a></li>-->
+                        <!--</ul>-->
                     </li>
                 </ul>
             </div>
